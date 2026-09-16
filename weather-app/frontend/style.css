@@ -1,0 +1,22 @@
+/* style.css
+   Nothing you strictly need to fill in here — style it however you like.
+   A few pointers if you want structure to work from:
+     - Center the main container on the page
+     - Give the weather result card a background, padding, rounded corners
+     - Style the error message to stand out (e.g. red text) and hide it
+       by default (display: none) until JS shows it
+     - Consider adding a subtle transition/fade when results appear
+*/
+
+body {
+  font-family: system-ui, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  background: #eef3f7;
+}
+
+main {
+  width: 320px;
+  text-align: center;
+}
