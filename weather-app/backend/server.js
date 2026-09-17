@@ -32,11 +32,13 @@ app.use(express.json());
 app.use('/api/weather', weatherRouter);
 
 // TODO 6: Add a simple health check route so you can confirm the server is up:
-//   app.get('/', (req, res) => res.send('Weather API is running'));
+// DONE
+app.get('/', (req, res) => res.send('Weather API is running'));
 
 // TODO 7: Start the server
-//   const PORT = process.env.PORT || 5000;
-//   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// DONE
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // Hint: run this with `npm run dev` (after npm install) and visit
 // http://localhost:5000 in your browser to confirm you see your health check message.
