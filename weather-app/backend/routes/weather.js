@@ -23,14 +23,38 @@ router.get('/', async (req, res) => {
         return res.status(400).json({ error: 'Invalid request: please enter a valid "city"'});
     }
 
-    const url = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+process.env.WEATHER_API_KEY+'&units=imperial';
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
-
-    if(data.cod != 200)
+    try
     {
-        return res.status(404).json({ error: 'Invalid request: "city" not found'});
+        const url = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+process.env.WEATHER_API_KEY+'&units=imperial';
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if(data.cod != 200)
+        {
+            return res.status(404).json({ error: 'Invalid request: "city" not found'});
+        }
+        const cityName = data.name;
+        const temperature = data.main.temp;
+        const feelsLike = data.main.feels_like;
+        const description = data.weather[0].description;
+        const icon = data.weather[0].icon;
+        const humidity = data.main.humidity;
+        const windSpeed = data.wind.speed;
+
+        res.json({
+            city: cityName,
+            temperature,
+            feelsLike,
+            description,
+            icon,
+            humidity,
+            windSpeed
+        });
+    }
+    catch(e)
+    {
+        return res.status(500).json({ error: 'Server error fetching weather data'});
+
     }
 })
 
