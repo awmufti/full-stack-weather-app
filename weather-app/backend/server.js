@@ -13,7 +13,6 @@
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
-
 // TODO 2: Import your weather router from ./routes/weather.js
 // DONE
 import weatherRouter from './routes/weather.js'
