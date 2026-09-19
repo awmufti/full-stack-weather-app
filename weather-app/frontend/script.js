@@ -11,9 +11,14 @@
 //   const searchBtn = document.getElementById('...');
 //   const resultDiv = document.getElementById('...');
 //   const errorDiv = document.getElementById('...');
-
+function submitCity(event)
+{
+    event.preventDefault(); // stops the page from reloading
+    const cityInput = document.getElementById('cityInput').value;
+    alert(cityInput);
+}
 // TODO 2: Define the base URL of your backend
-//   const API_BASE = 'http://localhost:5000/api/weather';
+const API_BASE = 'http://localhost:5000/api/weather';
 
 // TODO 3: Write an async function getWeather(city) that:
 //   a. Clears any previous error/result

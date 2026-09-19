@@ -33,6 +33,7 @@ router.get('/', async (req, res) => {
         {
             return res.status(404).json({ error: 'Invalid request: "city" not found'});
         }
+        console.log(data);
         const cityName = data.name;
         const temperature = data.main.temp;
         const feelsLike = data.main.feels_like;

@@ -22,10 +22,13 @@
     <h1>Weather Checker</h1>
 
     <!-- TODO 2: form or input + button here -->
-
-    <!-- TODO 3: results container here -->
-    <div id="weather-result"></div>
-    <!-- TODO 4: error message container here -->
+    <form onsubmit="submitCity(event)">
+      <label for="cityInput">City Name:</label>
+      <input type="text" id="cityInput" name="cityInput" placeholder="Enter City here" required>
+      
+      <!-- Submit Button -->
+      <button type="submit" onclick="showValue()">Submit</button>
+    </form>
   </main>
 
   <script src="script.js"></script>
