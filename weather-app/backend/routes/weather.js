@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 
         if(data.cod != 200)
         {
-            return res.status(404).json({ error: 'Invalid request: "city" not found'});
+            return res.status(404).json({ error: 'Please retry: The city entered was not found'});
         }
         console.log(data);
         const cityName = data.name;
@@ -41,6 +41,7 @@ router.get('/', async (req, res) => {
         const icon = data.weather[0].icon;
         const humidity = data.main.humidity;
         const windSpeed = data.wind.speed;
+        const country = data.sys.country;
 
         res.json({
             city: cityName,
@@ -49,7 +50,8 @@ router.get('/', async (req, res) => {
             description,
             icon,
             humidity,
-            windSpeed
+            windSpeed,
+            country
         });
     }
     catch(e)
